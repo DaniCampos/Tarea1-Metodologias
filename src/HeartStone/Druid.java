@@ -1,10 +1,9 @@
 package HeartStone;
 
 public class Druid extends AbstractCard{
-	public static int initial_Life_Points = 100;
-	public int attackPoints = 10;
+
 	
-	public Druid(String aName) {
+	public Druid(String aName, int initial_Life_Points, int attackPoints) {
 		name = aName;
 		lifePoints = initial_Life_Points;
 		actionPoints = attackPoints;
@@ -13,68 +12,27 @@ public class Druid extends AbstractCard{
 
 	@Override
 	public void attack(Card card) {
-		card.receivesAttackDruid(this);
-	}
-	
-
-	@Override
-	public void receivesAttackAssassin(Card card) {
-		receivesAttack(card);
-	}
-
-	@Override
-	public void receivesAttackDruid(Card card) {
-		actionPoints = actionPoints * 2;
-		hasBeenDamaged(card.getActionPoints() /2);
-		
-	}
-
-	@Override
-	public void receivesAttackHealer(Card card) {
-		if (stillAlive()) {
-			hasBeenDamaged(-1*actionPoints/2);
+		if (this.stillAlive() & card.stillAlive()){
+			card.receivesAttackDruid(this);	
 		}
 		
 	}
-
-	@Override
-	public void receivesAttackHunter(Card card) {
-		receivesAttack(card);
-		
-	}
-
-	@Override
-	public void receivesAttackKnight(Card card) {
-		receivesAttack(card);
-		
-	}
-
-	@Override
-	public void receivesAttackMage(Card card) {
-		receivesAttack(card);
-		
-	}
-
+	
 	@Override
 	public void receivesAttackPaladin(Card card) {
+		if(getDamagePoints() > 0) {
+			hasBeenDamaged(-1*card.getActionPoints()*2/3);
+		}
 		actionPoints += card.getActionPoints()*2/3;
-		hasBeenDamaged(-1*card.getActionPoints()*2/3);
 	}
 
 	@Override
 	public void receivesAttackShaman(Card card) {
-		actionPoints -= card.getActionPoints()*2/3;
+		if(getActionPoints() > 0) {
+			actionPoints -= card.getActionPoints()*2/3;
+		}
 		hasBeenDamaged(card.getActionPoints()*2/3);
 		
 	}
-	
-	@Override
-	public void receivesAttackWarlock(Card card) {
-		receivesAttack(card);
-	}
-	
-	
-	
-	
 
 }

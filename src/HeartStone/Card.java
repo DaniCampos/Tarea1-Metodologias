@@ -12,9 +12,11 @@ public interface Card {
 
 	int getActionPoints();
 	
+	int getDamagePoints();
+	
 	void attack(Card card);
 	
-	void receivesAttack(Card card);
+	//void receivesAttack(Card card);
 	
 	void receivesAttackAssassin(Card card);
 	
