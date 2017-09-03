@@ -2,109 +2,127 @@ package HeartStone;
 
 /**
  * Interface that has the following methods to implement the heartStone Game
+ * 
  * @author Daniela Campos
  */
 public interface Card {
 
-	/**
-	 * Retorna el nombre de una carta.
-	 * @return name
-	 */
-	String getName();
-	
-	/**
-	 * Retorna los puntos de vida de una carta.
-	 * @return lifePoints
-	 */
-	int getLifePoints();
-	
-	/**
-	 * Retorna los puntos de accion de una carta.
-	 * @return actionPoints
-	 */
-	int getActionPoints();
-	
-	/**
-	 * Retorna los puntos de daño de una carta.
-	 * @return damagePoints
-	 */
-	int getDamagePoints();
-	
-	/**
-	 * Le suma a actionPoints los puntos indicados.
-	 * @param points cantidad de puntos de accion
-	 */
-	void setActionPoints(int points);
-	
-	/**
-	 * Cambia el valor de los puntos de daño
-	 * @param points puntos con los que fue atacada la carta
-	 */
-	void hasBeenDamaged(int points);
-	
-	/**
-	 * Verifica que la carta siga viva
-	 * @return false si es que los puntos de vida son menores a los de daño, true si no
-	 */
-	boolean stillAlive();
+  /**
+   * Returns the name of a Card.
+   * 
+   * @return name
+   */
+  String getName();
 
-	/**
-	 * Ataca a la carta correspondiente
-	 * @param card carta que sera atacada por la carta actual
-	 */
-	void attack(Card card);
-	
-	/**
-	 * Ejecuta el ataque de un Assassin.
-	 * @param card carta que esta atacando a la carta actual
-	 */
-	void receivesAttackAssassin(Card card);
-	
-	/**
-	 * Ejecuta el ataque de un Druid.
-	 * @param card carta que esta atacando a la carta actual
-	 */
-	void receivesAttackDruid(Card card);
-	
-	/**
-	 * Ejecuta el ataque de un Healer.
-	 * @param card carta que esta atacando a la carta actual
-	 */
-	void receivesAttackHealer(Card card);
-	
-	/**
-	 * Ejecuta el ataque de un Hunter.
-	 * @param card carta que esta atacando a la carta actual
-	 */
-	void receivesAttackHunter(Card card);
-	
-	/**
-	 * Ejecuta el ataque de un Knight.
-	 * @param card carta que esta atacando a la carta actual
-	 */
-	void receivesAttackKnight(Card card);
-	
-	/**
-	 * Ejecuta el ataque de un Mage.
-	 * @param card carta que esta atacando a la carta actual
-	 */
-	void receivesAttackMage(Card card);
-	
-	/**
-	 * Ejecuta el ataque de un Paladin.
-	 * @param card carta que esta atacando a la carta actual
-	 */
-	void receivesAttackPaladin(Card card);
-	
-	/**
-	 * Ejecuta el ataque de un Shaman.
-	 * @param card carta que esta atacando a la carta actual
-	 */
-	void receivesAttackShaman(Card card);
-	
-	/**
-	 * Ejecuta el ataque de un Warlock.
-	 * @param card carta que esta atacando a la carta actual
-	 */
-	void receivesAttackWarlock(Card card);
+  /**
+   * Returns the life points of a Card.
+   * 
+   * @return lifePoints
+   */
+  int getLifePoints();
+
+  /**
+   * Returns the action points of a Card.
+   * 
+   * @return actionPoints
+   */
+  int getActionPoints();
+
+  /**
+   * Returns the damage points of a Card.
+   * 
+   * @return damagePoints
+   */
+  int getDamagePoints();
+
+  /**
+   * Sums the indicated points to the actionPoints of the Card.
+   * 
+   * @param points amount of action points
+   */
+  void setActionPoints(int points);
+
+  /**
+   * Changes the value of the damage points.
+   * 
+   * @param points amount of points with witch the card was attacked
+   */
+  void hasBeenDamaged(int points);
+
+  /**
+   * Verifies that the card is still alive
+   * 
+   * @return false if the life points are less than the damage points, true if not.
+   */
+  boolean stillAlive();
+
+  /**
+   * Attacks the corresponding card.
+   * 
+   * @param card Card that will be attacked by the current card
+   */
+  void attack(Card card);
+
+  /**
+   * Executes the attack of an Assassin.
+   * 
+   * @param card Card that's attacking the current card
+   */
+  void receivesAttackAssassin(Card card);
+
+  /**
+   * Executes the attack of a Druid.
+   * 
+   * @param card Card that's attacking the current card
+   */
+  void receivesAttackDruid(Card card);
+
+  /**
+   * Executes the attack of a Healer.
+   * 
+   * @param card Card that's attacking the current card
+   */
+  void receivesAttackHealer(Card card);
+
+  /**
+   * Executes the attack of a Hunter.
+   * 
+   * @param card Card that's attacking the current card
+   */
+  void receivesAttackHunter(Card card);
+
+  /**
+   * Executes the attack of a Knight.
+   * 
+   * @param card Card that's attacking the current card
+   */
+  void receivesAttackKnight(Card card);
+
+  /**
+   * Executes the attack of a Mage.
+   * 
+   * @param card Card that's attacking the current card
+   */
+  void receivesAttackMage(Card card);
+
+  /**
+   * Executes the attack of a Paladin.
+   * 
+   * @param card Card that's attacking the current card
+   */
+  void receivesAttackPaladin(Card card);
+
+  /**
+   * Executes the attack of a Shaman.
+   * 
+   * @param card Card that's attacking the current card
+   */
+  void receivesAttackShaman(Card card);
+
+  /**
+   * Executes the attack of a Warlock.
+   * 
+   * @param card Card that's attacking the current card
+   */
+  void receivesAttackWarlock(Card card);
 }
