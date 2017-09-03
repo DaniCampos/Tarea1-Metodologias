@@ -27,7 +27,7 @@ public abstract class AbstractCard implements Card {
 
   @Override
   public int getActionPoints() {
-    return actionPoints;
+    return Math.max(0,actionPoints);
   }
 
   @Override
