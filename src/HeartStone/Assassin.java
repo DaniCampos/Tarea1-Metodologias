@@ -1,8 +1,6 @@
 package HeartStone;
 
 public class Assassin extends AbstractCard{
-	//public static int initial_Life_Points = 100;
-	//public int attackPoints = 10;
 	
 	public Assassin(String aName, int initial_Life_Points, int attackPoints) {
 		name = aName;

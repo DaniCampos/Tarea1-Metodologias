@@ -25,7 +25,9 @@ public class Healer extends AbstractCard{
 	@Override
 	public void receivesAttackPaladin(Card card) {
 		actionPoints += card.getActionPoints()*2/3;
-		hasBeenDamaged(-1*card.getActionPoints()*2/3);
+		if(getDamagePoints() > 0) {
+			hasBeenDamaged(-1*card.getActionPoints()*2/3);
+		}	
 		
 	}
 

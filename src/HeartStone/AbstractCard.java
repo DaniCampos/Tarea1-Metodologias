@@ -11,7 +11,7 @@ public abstract class AbstractCard implements Card{
 	
 	protected String name;
 	protected int lifePoints;
-	protected int damagePoints;
+	protected int damagePoints = 0;
 	protected int actionPoints;
 	
 	@Override
