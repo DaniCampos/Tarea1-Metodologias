@@ -1,27 +1,24 @@
 package HeartStone;
 
-/*Comentarios:
- * podría ocupar una funcion attack en abstractcard que verifique que esté alive y dsps lo
- * llama la atack de cada clase
- * 
- * 
+/**
+ * Clase abstracta que implementa la interfaz Card, implementando todos sus metodos
+ * @author Daniela Campos
  */
-
-public abstract class AbstractCard implements Card{
+public abstract class AbstractCard implements Card {
 	
-	protected String name;
-	protected int lifePoints;
+	protected String NAME;
+	protected int LIFE_POINTS;
 	protected int damagePoints = 0;
 	protected int actionPoints;
 	
 	@Override
 	public String getName() {
-		return name;
+		return NAME;
 	}
 	
 	@Override
 	public int getLifePoints() {
-		return lifePoints;
+		return LIFE_POINTS;
 	}
 	
 	@Override
@@ -35,86 +32,78 @@ public abstract class AbstractCard implements Card{
 	}
 	
 	@Override
+	public void setActionPoints(int points) {
+		actionPoints += points;
+	}
+	
+	@Override
 	public void hasBeenDamaged(int points) {
 		damagePoints += points;
 	}
 	
+	
 	@Override
 	public boolean stillAlive() {
-		if(damagePoints >= lifePoints) {
+		if (damagePoints >= LIFE_POINTS) {
 			return false;
 		}
 		return true;
 	}
 	
-	//@Override
-	//public void receivesAttack(Card card) {
-	//	hasBeenDamaged(card.getActionPoints());
-	//}
-	
 	@Override
 	public abstract void attack(Card card);
 	
 	@Override
-	public void receivesAttackAssassin(Card card) { //Listo
+	public void receivesAttackAssassin(Card card) { 
 		hasBeenDamaged(card.getActionPoints());	
 	}
 
 	@Override
-	public void receivesAttackDruid(Card card) { //Listo
-		hasBeenDamaged(card.getActionPoints() /2);
-		actionPoints += card.getActionPoints();
-	
+	public void receivesAttackDruid(Card card) { 
+		hasBeenDamaged(card.getActionPoints()/2);
+		this.setActionPoints(card.getActionPoints());
 	}
 
 	@Override
-	public void receivesAttackHealer(Card card) { //Listo
+	public void receivesAttackHealer(Card card) { 
 		if (getDamagePoints() > 0) {
-			hasBeenDamaged(-1*card.getActionPoints()/2);
-		}
-		
+			hasBeenDamaged(-1 * card.getActionPoints()/2);
+		}	
 	}
 
 	@Override
-	public void receivesAttackHunter(Card card) { //Listo
+	public void receivesAttackHunter(Card card) {
 		hasBeenDamaged(card.getActionPoints());	
 	}
 
 	@Override
-	public void receivesAttackKnight(Card card) { //Listo
-		hasBeenDamaged(card.getActionPoints());
-		
+	public void receivesAttackKnight(Card card) { 
+		hasBeenDamaged(card.getActionPoints());	
+	}
+	
+	@Override
+	public void receivesAttackMage(Card card) { 
+		hasBeenDamaged(card.getActionPoints());	
 	}
 
 	@Override
-	public void receivesAttackMage(Card card) { //Listo
-		hasBeenDamaged(card.getActionPoints());
-		
-	}
-
-	@Override
-	public void receivesAttackPaladin(Card card) { //Listo
-		if(getDamagePoints() > 0) {
+	public void receivesAttackPaladin(Card card) { 
+		if (getDamagePoints() > 0) {
 			hasBeenDamaged(-1*card.getActionPoints()/3);
 		}
-		actionPoints += card.getActionPoints()/3;
-		
-		
+		this.setActionPoints(card.getActionPoints()/3);
 	}
 
 	@Override
-	public void receivesAttackShaman(Card card) { //Listo
-		if(getActionPoints() > 0) {
-			actionPoints -= card.getActionPoints()/3; 
-		}
-		
-		hasBeenDamaged(card.getActionPoints()/3); 
-		
+	public void receivesAttackShaman(Card card) {
+		if (getActionPoints() > 0) {
+			this.setActionPoints(-card.getActionPoints()/3);
+		}		
+		hasBeenDamaged(card.getActionPoints()/3); 	
 	}
 
 	@Override
-	public void receivesAttackWarlock(Card card) { //Listo
+	public void receivesAttackWarlock(Card card) {
 		hasBeenDamaged(card.getActionPoints());	
-	}	
-	
+	}		
 }
