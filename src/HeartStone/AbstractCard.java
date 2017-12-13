@@ -1,7 +1,7 @@
 package HeartStone;
 
 /**
- * Abstract Class that implements the methods of the Card interface
+ * Abstract Class that implements the methods of the ICard interface
  * 
  * @author Daniela Campos
  */
